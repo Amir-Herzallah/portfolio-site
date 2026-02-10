@@ -44,12 +44,12 @@ export default function Navigation() {
   return (
     <motion.nav
       style={{ opacity }}
-      className="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2"
+      className="fixed top-3 sm:top-6 left-1/2 -translate-x-1/2 z-50 flex items-center gap-1 sm:gap-2 px-2"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, type: 'spring' }}
     >
-      <motion.div className="glass-strong rounded-full px-6 py-3 flex items-center gap-1">
+      <motion.div className="glass-strong rounded-full px-2 sm:px-4 md:px-6 py-2 sm:py-3 flex items-center gap-0.5 sm:gap-1">
         {navItems.map((item, index) => {
           const Icon = item.icon;
           const isActive = activeSection === item.id;
@@ -58,7 +58,7 @@ export default function Navigation() {
             <motion.button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className="relative px-4 py-2 rounded-full transition-colors group"
+              className="relative px-2 sm:px-3 md:px-4 py-2 rounded-full transition-colors group"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, y: -20 }}
@@ -73,13 +73,13 @@ export default function Navigation() {
                 />
               )}
               
-              <div className="relative z-10 flex items-center gap-2">
+              <div className="relative z-10 flex items-center gap-1.5 sm:gap-2">
                 <Icon 
-                  className="w-4 h-4"
+                  className="w-3.5 h-3.5 sm:w-4 sm:h-4"
                   style={{ color: isActive ? 'white' : 'var(--text-primary)' }}
                 />
                 <span 
-                  className="text-sm font-semibold hidden md:block"
+                  className="text-xs sm:text-sm font-semibold hidden md:block"
                   style={{ color: isActive ? 'white' : 'var(--text-primary)' }}
                 >
                   {item.label}

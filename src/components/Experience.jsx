@@ -91,21 +91,21 @@ export default function Experience() {
   };
 
   return (
-    <section id="experience" className="min-h-screen flex items-center justify-center py-20 px-4" ref={ref}>
+    <section id="experience" className="min-h-screen flex items-center justify-center py-16 sm:py-20 px-4 sm:px-6" ref={ref}>
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
         className="max-w-6xl mx-auto w-full"
       >
-        <motion.div variants={itemVariants} className="text-center mb-16">
+        <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
           <motion.h2
-            className="text-5xl md:text-7xl font-bold mb-6"
+            className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6"
             whileHover={{ scale: 1.02 }}
           >
             Work <span className="text-gradient">Experience</span>
           </motion.h2>
-          <p className="text-xl font-medium" style={{ color: 'var(--text-primary)' }}>
+          <p className="text-base sm:text-xl font-medium px-2" style={{ color: 'var(--text-primary)' }}>
             My professional journey through innovative tech companies
           </p>
         </motion.div>
@@ -113,13 +113,13 @@ export default function Experience() {
         <div className="relative">
           {/* Timeline line */}
           <motion.div
-            className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-tech-cyan via-tech-purple to-tech-pink"
+            className="absolute left-4 sm:left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-tech-cyan via-tech-purple to-tech-pink"
             initial={{ height: 0 }}
             animate={isInView ? { height: '100%' } : {}}
             transition={{ duration: 1.5, ease: 'easeInOut' }}
           />
 
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-12">
             {experiences.map((exp, index) => (
               <motion.div
                 key={index}
@@ -130,7 +130,7 @@ export default function Experience() {
               >
                 {/* Timeline dot */}
                 <motion.div
-                  className={`absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-gradient-to-r ${exp.color} -translate-x-1/2 z-10 border-4 border-white dark:border-gray-900`}
+                  className={`absolute left-4 sm:left-8 md:left-1/2 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-gradient-to-r ${exp.color} -translate-x-1/2 z-10 border-2 sm:border-4 border-white dark:border-gray-900`}
                   initial={{ scale: 0 }}
                   animate={isInView ? { scale: 1 } : {}}
                   transition={{ delay: index * 0.2 }}
@@ -139,48 +139,49 @@ export default function Experience() {
 
                 {/* Content card */}
                 <motion.div
-                  className={`w-full md:w-[calc(50%-3rem)] ml-20 md:ml-0 glass-strong rounded-2xl p-6 group hover:scale-105 transition-all cursor-pointer ${
+                  className={`w-full md:w-[calc(50%-3rem)] ml-12 sm:ml-20 md:ml-0 glass-strong rounded-2xl p-4 sm:p-6 group hover:scale-105 transition-all cursor-pointer ${
                     expandedIndex === index ? 'ring-2 ring-tech-cyan' : ''
                   }`}
                   onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
                   whileHover={{ y: -5 }}
                 >
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex items-center gap-3">
+                  <div className="flex items-start justify-between mb-3 sm:mb-4 gap-2">
+                    <div className="flex items-center gap-2 sm:gap-3 min-w-0">
                       <motion.div
-                        className="w-12 h-12 rounded-xl flex items-center justify-center overflow-hidden bg-white/90 dark:bg-gray-800/90 shadow-sm"
+                        className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center overflow-hidden bg-white/90 dark:bg-gray-800/90 shadow-sm flex-shrink-0"
                         whileHover={{ rotate: 360 }}
                         transition={{ duration: 0.6 }}
                       >
                         <CompanyLogo company={exp.company} size="lg" />
                       </motion.div>
-                      <div>
-                        <h3 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
+                      <div className="min-w-0">
+                        <h3 className="text-lg sm:text-2xl font-bold truncate" style={{ color: 'var(--text-primary)' }}>
                           {exp.company}
                         </h3>
-                        <p className="text-lg text-tech-cyan font-semibold drop-shadow-lg">{exp.role}</p>
+                        <p className="text-sm sm:text-lg text-tech-cyan font-semibold drop-shadow-lg">{exp.role}</p>
                       </div>
                     </div>
                     <motion.div
                       animate={{ rotate: expandedIndex === index ? 90 : 0 }}
                       transition={{ duration: 0.3 }}
+                      className="flex-shrink-0"
                     >
-                      <ChevronRight className="w-6 h-6 text-gray-500 dark:text-gray-400" />
+                      <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-gray-500 dark:text-gray-400" />
                     </motion.div>
                   </div>
 
-                  <div className="flex flex-wrap gap-4 mb-4 text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>
+                  <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 mb-3 sm:mb-4 text-xs sm:text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>
                     <div className="flex items-center gap-2">
-                      <MapPin className="w-4 h-4" />
-                      {exp.location}
+                      <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
+                      <span className="break-words">{exp.location}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Calendar className="w-4 h-4" />
-                      {exp.period}
+                      <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
+                      <span>{exp.period}</span>
                     </div>
                   </div>
 
-                  <p className="mb-4 font-medium" style={{ color: 'var(--text-primary)' }}>
+                  <p className="mb-3 sm:mb-4 font-medium text-sm sm:text-base" style={{ color: 'var(--text-primary)' }}>
                     {exp.description}
                   </p>
 
@@ -193,8 +194,8 @@ export default function Experience() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="pt-4 border-t border-gray-300 dark:border-gray-600">
-                      <h4 className="font-bold mb-3 text-lg" style={{ color: 'var(--text-primary)' }}>Key Achievements:</h4>
+                    <div className="pt-3 sm:pt-4 border-t border-gray-300 dark:border-gray-600">
+                      <h4 className="font-bold mb-2 sm:mb-3 text-base sm:text-lg" style={{ color: 'var(--text-primary)' }}>Key Achievements:</h4>
                       <ul className="space-y-2">
                         {exp.highlights.map((highlight, hIndex) => (
                           <motion.li
@@ -202,10 +203,10 @@ export default function Experience() {
                             initial={{ x: -20, opacity: 0 }}
                             animate={expandedIndex === index ? { x: 0, opacity: 1 } : {}}
                             transition={{ delay: hIndex * 0.1 }}
-                            className="flex items-start gap-2 font-medium"
+                            className="flex items-start gap-2 font-medium text-sm sm:text-base"
                             style={{ color: 'var(--text-primary)' }}
                           >
-                            <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${exp.color} mt-2 flex-shrink-0 shadow-lg`} />
+                            <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${exp.color} mt-1.5 sm:mt-2 flex-shrink-0 shadow-lg`} />
                             <span>{highlight}</span>
                           </motion.li>
                         ))}

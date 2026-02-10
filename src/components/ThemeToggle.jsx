@@ -8,7 +8,7 @@ export default function ThemeToggle() {
   return (
     <motion.button
       onClick={toggleTheme}
-      className="relative w-14 h-14 rounded-full glass-strong flex items-center justify-center group overflow-hidden"
+      className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full glass-strong flex items-center justify-center group overflow-hidden"
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
       initial={{ opacity: 0, y: -20 }}
@@ -30,9 +30,9 @@ export default function ThemeToggle() {
         className="relative z-10"
       >
         {theme === 'dark' ? (
-          <Moon className="w-6 h-6 text-tech-cyan" />
+          <Moon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-tech-cyan" />
         ) : (
-          <Sun className="w-6 h-6 text-tech-purple" />
+          <Sun className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-tech-purple" />
         )}
       </motion.div>
     </motion.button>

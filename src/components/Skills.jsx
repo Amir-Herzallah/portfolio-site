@@ -121,28 +121,28 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="min-h-screen flex items-center justify-center py-20 px-4" ref={ref}>
+    <section id="skills" className="min-h-screen flex items-center justify-center py-16 sm:py-20 px-4 sm:px-6" ref={ref}>
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
         className="max-w-7xl mx-auto w-full"
       >
-        <motion.div variants={itemVariants} className="text-center mb-16">
+        <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
           <motion.h2
-            className="text-5xl md:text-7xl font-bold mb-6"
+            className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6"
             whileHover={{ scale: 1.02 }}
           >
             Technical <span className="text-gradient">Skills</span>
           </motion.h2>
-          <p className="text-xl font-medium" style={{ color: 'var(--text-primary)' }}>
+          <p className="text-base sm:text-xl font-medium px-2" style={{ color: 'var(--text-primary)' }}>
             My toolkit for building exceptional software
           </p>
         </motion.div>
 
         <motion.div
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
         >
           {skillCategories.map((category, index) => {
             const Icon = category.icon;
@@ -152,7 +152,7 @@ export default function Skills() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className="glass-strong rounded-2xl p-6 group relative overflow-hidden"
+                className="glass-strong rounded-2xl p-5 sm:p-6 group relative overflow-hidden"
                 onMouseEnter={() => setHoveredCategory(index)}
                 onMouseLeave={() => setHoveredCategory(null)}
                 whileHover={{ y: -10, scale: 1.02 }}
@@ -166,20 +166,20 @@ export default function Skills() {
 
                 {/* Content */}
                 <div className="relative z-10">
-                  <div className="flex items-center gap-4 mb-6">
+                  <div className="flex items-center gap-3 sm:gap-4 mb-5 sm:mb-6">
                     <motion.div
-                      className={`w-14 h-14 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center`}
+                      className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center flex-shrink-0`}
                       whileHover={{ rotate: 360, scale: 1.1 }}
                       transition={{ duration: 0.6 }}
                     >
-                      <Icon className="w-7 h-7 text-white" />
+                      <Icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
                     </motion.div>
-                    <h3 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
+                    <h3 className="text-xl sm:text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
                       {category.title}
                     </h3>
                   </div>
 
-                  <div className="space-y-4">
+                  <div className="space-y-3 sm:space-y-4">
                     {category.skills.map((skill, skillIndex) => (
                       <motion.div
                         key={skillIndex}
@@ -187,16 +187,16 @@ export default function Skills() {
                         animate={isInView ? { x: 0, opacity: 1 } : {}}
                         transition={{ delay: index * 0.1 + skillIndex * 0.05 }}
                       >
-                        <div className="flex justify-between items-center mb-2">
-                          <span className="text-sm font-medium flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
-                            <TechIcon name={skill.name} size={18} />
-                            {skill.name}
+                        <div className="flex justify-between items-center mb-1.5 sm:mb-2">
+                          <span className="text-xs sm:text-sm font-medium flex items-center gap-1.5 sm:gap-2" style={{ color: 'var(--text-primary)' }}>
+                            <TechIcon name={skill.name} size={16} />
+                            <span className="break-words">{skill.name}</span>
                           </span>
-                          <span className="text-xs font-semibold" style={{ color: 'var(--text-secondary)' }}>
+                          <span className="text-xs font-semibold ml-2 flex-shrink-0" style={{ color: 'var(--text-secondary)' }}>
                             {skill.level}%
                           </span>
                         </div>
-                        <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden shadow-inner">
+                        <div className="h-1.5 sm:h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden shadow-inner">
                           <motion.div
                             className={`h-full bg-gradient-to-r ${category.color} rounded-full shadow-lg`}
                             initial={{ width: 0 }}
@@ -220,12 +220,12 @@ export default function Skills() {
         {/* Additional highlights */}
         <motion.div
           variants={itemVariants}
-          className="mt-16 glass-strong rounded-3xl p-8 md:p-12"
+          className="mt-12 sm:mt-16 glass-strong rounded-3xl p-6 sm:p-8 md:p-12"
         >
-          <h3 className="text-3xl font-bold mb-8 text-center">
+          <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center">
             Why Work With <span className="text-gradient">Me?</span>
           </h3>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             {[
               {
                 title: 'Performance First',
@@ -251,11 +251,11 @@ export default function Skills() {
                 transition={{ delay: 1 + index * 0.2 }}
                 whileHover={{ y: -5 }}
               >
-                <div className="text-5xl mb-4">{item.icon}</div>
-                <h4 className="text-xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
+                <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">{item.icon}</div>
+                <h4 className="text-lg sm:text-xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
                   {item.title}
                 </h4>
-                <p className="font-medium" style={{ color: 'var(--text-secondary)' }}>
+                <p className="font-medium text-sm sm:text-base" style={{ color: 'var(--text-secondary)' }}>
                   {item.description}
                 </p>
               </motion.div>

@@ -65,7 +65,7 @@ export default function Hero() {
     <motion.section
       id="hero"
       style={{ opacity, scale }}
-      className="min-h-screen flex items-center justify-center relative overflow-hidden px-4"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 sm:px-6 pt-20 sm:pt-0"
     >
       <motion.div
         className="absolute inset-0 pointer-events-none"
@@ -74,29 +74,29 @@ export default function Hero() {
           y: mousePosition.y,
         }}
       >
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-tech-cyan/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-tech-purple/10 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-tech-cyan/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 sm:w-96 sm:h-96 bg-tech-purple/10 rounded-full blur-3xl" />
       </motion.div>
 
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="text-center z-10 max-w-5xl mx-auto"
+        className="text-center z-10 max-w-5xl mx-auto w-full"
       >
-        <motion.div variants={itemVariants} className="mb-6">
+        <motion.div variants={itemVariants} className="mb-4 sm:mb-6">
           <motion.div
-            className="inline-flex items-center gap-2 glass px-6 py-3 rounded-full mb-8"
+            className="inline-flex items-center gap-2 glass px-4 sm:px-6 py-2 sm:py-3 rounded-full mb-6 sm:mb-8"
             whileHover={{ scale: 1.05 }}
           >
-            <Sparkles className="w-4 h-4 text-tech-cyan animate-pulse" />
-            <span className="text-sm font-medium text-gradient">Available for opportunities</span>
+            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-tech-cyan animate-pulse" />
+            <span className="text-xs sm:text-sm font-medium text-gradient">Available for opportunities</span>
           </motion.div>
         </motion.div>
 
         <motion.h1
           variants={itemVariants}
-          className="text-6xl md:text-8xl lg:text-9xl font-bold mb-6"
+          className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-bold mb-4 sm:mb-6 px-2"
           style={{ color: 'var(--text-primary)' }}
         >
           <motion.span
@@ -116,9 +116,9 @@ export default function Hero() {
           </motion.span>
         </motion.h1>
 
-        <motion.div variants={itemVariants} className="mb-8">
+        <motion.div variants={itemVariants} className="mb-6 sm:mb-8 px-2">
           <motion.h2
-            className="text-2xl md:text-4xl lg:text-5xl font-light mb-4"
+            className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-light mb-3 sm:mb-4"
             style={{ color: 'var(--text-primary)' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -127,7 +127,7 @@ export default function Hero() {
             Full-Stack Software Engineer
           </motion.h2>
           <motion.p
-            className="text-lg md:text-xl max-w-3xl mx-auto font-medium"
+            className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto font-medium leading-relaxed"
             style={{ color: 'var(--text-primary)' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -139,7 +139,7 @@ export default function Hero() {
           </motion.p>
         </motion.div>
 
-        <motion.div variants={itemVariants} className="flex items-center justify-center gap-4 mb-12">
+        <motion.div variants={itemVariants} className="flex items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-12">
           {socialLinks.map((link, index) => {
             const Icon = link.icon;
             return (
@@ -148,7 +148,7 @@ export default function Hero() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-14 h-14 glass-strong rounded-full flex items-center justify-center group relative overflow-hidden"
+                className="w-12 h-12 sm:w-14 sm:h-14 glass-strong rounded-full flex items-center justify-center group relative overflow-hidden"
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, y: 20 }}
@@ -161,7 +161,7 @@ export default function Hero() {
                   transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
                 />
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_20px_rgba(0,217,255,0.6)]" />
-                <Icon className="w-6 h-6 relative z-10 text-gray-800 dark:text-gray-200 group-hover:text-white transition-colors drop-shadow-lg" />
+                <Icon className="w-5 h-5 sm:w-6 sm:h-6 relative z-10 text-gray-800 dark:text-gray-200 group-hover:text-white transition-colors drop-shadow-lg" />
               </motion.a>
             );
           })}
@@ -170,7 +170,7 @@ export default function Hero() {
         <motion.div variants={itemVariants}>
           <motion.button
             onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
-            className="glass-strong px-8 py-4 rounded-full font-semibold group relative overflow-hidden btn-tech"
+            className="glass-strong px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold group relative overflow-hidden btn-tech text-sm sm:text-base"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -198,17 +198,17 @@ export default function Hero() {
 
       {scrollHint && (
         <motion.div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+          className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 1 }}
         >
-          <span className="text-sm font-semibold" style={{ color: 'var(--text-secondary)' }}>Scroll to explore</span>
+          <span className="text-xs sm:text-sm font-semibold" style={{ color: 'var(--text-secondary)' }}>Scroll to explore</span>
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           >
-            <ChevronDown className="w-6 h-6 text-tech-cyan drop-shadow-lg" />
+            <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-tech-cyan drop-shadow-lg" />
           </motion.div>
         </motion.div>
       )}

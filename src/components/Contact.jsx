@@ -124,31 +124,31 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="min-h-screen flex items-center justify-center py-20 px-4" ref={ref}>
+    <section id="contact" className="min-h-screen flex items-center justify-center py-16 sm:py-20 px-4 sm:px-6" ref={ref}>
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
         className="max-w-6xl mx-auto w-full"
       >
-        <motion.div variants={itemVariants} className="text-center mb-16">
+        <motion.div variants={itemVariants} className="text-center mb-12 sm:mb-16">
           <motion.h2
-            className="text-5xl md:text-7xl font-bold mb-6"
+            className="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6"
             whileHover={{ scale: 1.02 }}
           >
             Get In <span className="text-gradient">Touch</span>
           </motion.h2>
-          <p className="text-xl font-medium" style={{ color: 'var(--text-primary)' }}>
+          <p className="text-base sm:text-xl font-medium px-2" style={{ color: 'var(--text-primary)' }}>
             Let's discuss how I can help bring your ideas to life
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
           {/* Contact Information */}
-          <motion.div variants={itemVariants} className="space-y-6">
-            <motion.div className="glass-strong rounded-3xl p-8">
-              <h3 className="text-3xl font-bold mb-8">Let's Connect</h3>
-              <div className="space-y-6">
+          <motion.div variants={itemVariants} className="space-y-5 sm:space-y-6">
+            <motion.div className="glass-strong rounded-3xl p-6 sm:p-8">
+              <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">Let's Connect</h3>
+              <div className="space-y-5 sm:space-y-6">
                 {contactInfo.map((info, index) => {
                   const Icon = info.icon;
                   return (
@@ -164,34 +164,34 @@ export default function Contact() {
                           href={info.href}
                           target={info.href.startsWith('http') ? '_blank' : undefined}
                           rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                          className="flex items-start gap-4 group"
+                          className="flex items-start gap-3 sm:gap-4 group"
                         >
                           <motion.div
-                            className={`w-12 h-12 rounded-xl bg-gradient-to-br ${info.color} flex items-center justify-center flex-shrink-0`}
+                            className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${info.color} flex items-center justify-center flex-shrink-0`}
                             whileHover={{ rotate: 360, scale: 1.1 }}
                             transition={{ duration: 0.6 }}
                           >
-                            <Icon className="w-6 h-6 text-white" />
+                            <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                           </motion.div>
-                          <div>
-                            <p className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>{info.label}</p>
-                            <p className="text-lg font-semibold group-hover:text-tech-cyan transition-colors" style={{ color: 'var(--text-primary)' }}>
+                          <div className="min-w-0 flex-1">
+                            <p className="text-xs sm:text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>{info.label}</p>
+                            <p className="text-sm sm:text-lg font-semibold group-hover:text-tech-cyan transition-colors break-words" style={{ color: 'var(--text-primary)' }}>
                               {info.value}
                             </p>
                           </div>
                         </a>
                       ) : (
-                        <div className="flex items-start gap-4">
+                        <div className="flex items-start gap-3 sm:gap-4">
                           <motion.div
-                            className={`w-12 h-12 rounded-xl bg-gradient-to-br ${info.color} flex items-center justify-center flex-shrink-0`}
+                            className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br ${info.color} flex items-center justify-center flex-shrink-0`}
                             whileHover={{ rotate: 360, scale: 1.1 }}
                             transition={{ duration: 0.6 }}
                           >
-                            <Icon className="w-6 h-6 text-white" />
+                            <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                           </motion.div>
-                          <div>
-                            <p className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>{info.label}</p>
-                            <p className="text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>
+                          <div className="min-w-0 flex-1">
+                            <p className="text-xs sm:text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>{info.label}</p>
+                            <p className="text-sm sm:text-lg font-semibold break-words" style={{ color: 'var(--text-primary)' }}>
                               {info.value}
                             </p>
                           </div>
@@ -205,11 +205,11 @@ export default function Contact() {
 
             <motion.div
               variants={itemVariants}
-              className="glass-strong rounded-3xl p-8 text-center"
+              className="glass-strong rounded-3xl p-6 sm:p-8 text-center"
             >
-              <div className="text-6xl mb-4">👋</div>
-              <h4 className="text-2xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Open to Opportunities</h4>
-              <p className="font-medium" style={{ color: 'var(--text-secondary)' }}>
+              <div className="text-5xl sm:text-6xl mb-3 sm:mb-4">👋</div>
+              <h4 className="text-xl sm:text-2xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Open to Opportunities</h4>
+              <p className="font-medium text-sm sm:text-base" style={{ color: 'var(--text-secondary)' }}>
                 Currently available for full-time positions, contract work, and exciting collaborations
               </p>
             </motion.div>
@@ -219,24 +219,24 @@ export default function Contact() {
           <motion.div variants={itemVariants}>
             <motion.form
               onSubmit={handleSubmit}
-              className="glass-strong rounded-3xl p-8 space-y-6"
+              className="glass-strong rounded-3xl p-6 sm:p-8 space-y-5 sm:space-y-6"
             >
-              <h3 className="text-3xl font-bold mb-6">Send a Message</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Send a Message</h3>
               
               {isSubmitted ? (
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  className="flex flex-col items-center justify-center py-12"
+                  className="flex flex-col items-center justify-center py-8 sm:py-12"
                 >
                   <motion.div
                     animate={{ rotate: 360 }}
                     transition={{ duration: 0.6 }}
                   >
-                    <CheckCircle className="w-20 h-20 text-tech-green mb-4" />
+                    <CheckCircle className="w-16 h-16 sm:w-20 sm:h-20 text-tech-green mb-3 sm:mb-4" />
                   </motion.div>
-                  <h4 className="text-2xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Message Sent!</h4>
-                  <p style={{ color: 'var(--text-secondary)' }}>
+                  <h4 className="text-xl sm:text-2xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Message Sent!</h4>
+                  <p className="text-sm sm:text-base text-center px-4" style={{ color: 'var(--text-secondary)' }}>
                     I'll get back to you as soon as possible.
                   </p>
                 </motion.div>
@@ -244,16 +244,16 @@ export default function Contact() {
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  className="flex flex-col items-center justify-center py-12"
+                  className="flex flex-col items-center justify-center py-8 sm:py-12"
                 >
-                  <AlertCircle className="w-20 h-20 text-red-500 mb-4" />
-                  <h4 className="text-2xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Oops! Something went wrong</h4>
-                  <p style={{ color: 'var(--text-secondary)' }} className="mb-4 text-center">
+                  <AlertCircle className="w-16 h-16 sm:w-20 sm:h-20 text-red-500 mb-3 sm:mb-4" />
+                  <h4 className="text-xl sm:text-2xl font-bold mb-2 text-center px-2" style={{ color: 'var(--text-primary)' }}>Oops! Something went wrong</h4>
+                  <p style={{ color: 'var(--text-secondary)' }} className="mb-4 text-center text-sm sm:text-base px-4">
                     Please try again or contact me directly at amirherzalla8@gmail.com
                   </p>
                   <button
                     onClick={() => setIsError(false)}
-                    className="px-6 py-2 bg-gradient-to-r from-tech-cyan to-tech-purple text-white rounded-lg font-semibold hover:scale-105 transition-transform"
+                    className="px-5 sm:px-6 py-2 bg-gradient-to-r from-tech-cyan to-tech-purple text-white rounded-lg font-semibold hover:scale-105 transition-transform text-sm sm:text-base"
                   >
                     Try Again
                   </button>
@@ -261,7 +261,7 @@ export default function Contact() {
               ) : (
                 <>
                   <div>
-                    <label htmlFor="name" className="block text-sm font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>
+                    <label htmlFor="name" className="block text-xs sm:text-sm font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>
                       Your Name
                     </label>
                     <motion.input
@@ -272,13 +272,13 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-xl bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 focus:border-tech-cyan focus:ring-2 focus:ring-tech-cyan/20 outline-none transition-all"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 focus:border-tech-cyan focus:ring-2 focus:ring-tech-cyan/20 outline-none transition-all text-sm sm:text-base"
                       placeholder="John Doe"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>
+                    <label htmlFor="email" className="block text-xs sm:text-sm font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>
                       Your Email
                     </label>
                     <motion.input
@@ -289,13 +289,13 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-xl bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 focus:border-tech-cyan focus:ring-2 focus:ring-tech-cyan/20 outline-none transition-all"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 focus:border-tech-cyan focus:ring-2 focus:ring-tech-cyan/20 outline-none transition-all text-sm sm:text-base"
                       placeholder="john@example.com"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>
+                    <label htmlFor="message" className="block text-xs sm:text-sm font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>
                       Your Message
                     </label>
                     <motion.textarea
@@ -305,8 +305,8 @@ export default function Contact() {
                       value={formData.message}
                       onChange={handleChange}
                       required
-                      rows={6}
-                      className="w-full px-4 py-3 rounded-xl bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 focus:border-tech-cyan focus:ring-2 focus:ring-tech-cyan/20 outline-none transition-all resize-none"
+                      rows={5}
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 focus:border-tech-cyan focus:ring-2 focus:ring-tech-cyan/20 outline-none transition-all resize-none text-sm sm:text-base"
                       placeholder="Tell me about your project..."
                     />
                   </div>
@@ -314,7 +314,7 @@ export default function Contact() {
                   <motion.button
                     type="submit"
                     disabled={isSending}
-                    className="w-full py-4 rounded-xl bg-gradient-to-r from-tech-cyan via-tech-purple to-tech-pink text-white font-bold group relative overflow-hidden btn-tech shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full py-3 sm:py-4 rounded-xl bg-gradient-to-r from-tech-cyan via-tech-purple to-tech-pink text-white font-bold group relative overflow-hidden btn-tech shadow-lg disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
                     whileHover={!isSending ? { scale: 1.02 } : {}}
                     whileTap={!isSending ? { scale: 0.98 } : {}}
                   >
@@ -337,11 +337,11 @@ export default function Contact() {
                         transition={{ duration: 1, repeat: Infinity }}
                       />
                     )}
-                    <span className="relative z-10 flex items-center justify-center gap-2 tracking-wide">
+                    <span className="relative z-10 flex items-center justify-center gap-2 tracking-wide text-sm sm:text-base">
                       {isSending ? (
                         <>
                           <motion.div
-                            className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
+                            className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white border-t-transparent rounded-full"
                             animate={{ rotate: 360 }}
                             transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
                           />
@@ -350,7 +350,7 @@ export default function Contact() {
                       ) : (
                         <>
                           Send Message
-                          <Send className="w-5 h-5" />
+                          <Send className="w-4 h-4 sm:w-5 sm:h-5" />
                         </>
                       )}
                     </span>
@@ -364,10 +364,10 @@ export default function Contact() {
         {/* Footer */}
         <motion.div
           variants={itemVariants}
-          className="mt-16 text-center"
+          className="mt-12 sm:mt-16 text-center px-4"
           style={{ color: 'var(--text-secondary)' }}
         >
-          <p className="text-sm font-medium">
+          <p className="text-xs sm:text-sm font-medium">
             © 2026 Amir Herzalla.
           </p>
         </motion.div>
