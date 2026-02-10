@@ -96,7 +96,8 @@ export default function Hero() {
 
         <motion.h1
           variants={itemVariants}
-          className="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 text-gray-900 dark:text-white"
+          className="text-6xl md:text-8xl lg:text-9xl font-bold mb-6"
+          style={{ color: 'var(--text-primary)' }}
         >
           <motion.span
             className="inline-block"
@@ -117,7 +118,8 @@ export default function Hero() {
 
         <motion.div variants={itemVariants} className="mb-8">
           <motion.h2
-            className="text-2xl md:text-4xl lg:text-5xl font-light text-gray-800 dark:text-gray-100 mb-4"
+            className="text-2xl md:text-4xl lg:text-5xl font-light mb-4"
+            style={{ color: 'var(--text-primary)' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
@@ -125,7 +127,8 @@ export default function Hero() {
             Full-Stack Software Engineer
           </motion.h2>
           <motion.p
-            className="text-lg md:text-xl text-gray-800 dark:text-gray-200 max-w-3xl mx-auto font-medium"
+            className="text-lg md:text-xl max-w-3xl mx-auto font-medium"
+            style={{ color: 'var(--text-primary)' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}
@@ -186,7 +189,7 @@ export default function Hero() {
               }}
               transition={{ duration: 1.5, repeat: Infinity }}
             />
-            <span className="relative z-10 text-gray-900 dark:text-gray-100 group-hover:text-white transition-colors font-bold tracking-wide">
+            <span className="relative z-10 group-hover:text-white transition-colors font-bold tracking-wide" style={{ color: 'var(--text-primary)' }}>
               Explore My Work
             </span>
           </motion.button>
@@ -200,7 +203,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 1 }}
         >
-          <span className="text-sm text-gray-800 dark:text-gray-100 font-semibold">Scroll to explore</span>
+          <span className="text-sm font-semibold" style={{ color: 'var(--text-secondary)' }}>Scroll to explore</span>
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}

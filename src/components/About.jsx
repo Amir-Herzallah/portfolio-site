@@ -71,7 +71,8 @@ export default function About() {
             About <span className="text-gradient">Me</span>
           </motion.h2>
           <motion.p
-            className="text-xl md:text-2xl text-gray-800 dark:text-gray-100 max-w-4xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed"
+            style={{ color: 'var(--text-primary)' }}
             variants={itemVariants}
           >
             I'm a passionate Full-Stack Software Engineer based in{' '}
@@ -103,10 +104,10 @@ export default function About() {
                 >
                   <Icon className="w-7 h-7 text-white" />
                 </motion.div>
-                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
+                <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
                   {highlight.title}
                 </h3>
-                <p className="text-gray-800 dark:text-gray-200">
+                <p style={{ color: 'var(--text-secondary)' }}>
                   {highlight.description}
                 </p>
               </motion.div>
@@ -128,16 +129,16 @@ export default function About() {
                   <div className="w-2 h-2 rounded-full bg-tech-cyan mt-2 animate-pulse" />
                   <div>
                     <h4 className="text-xl font-semibold text-tech-cyan drop-shadow-lg">Wiley/Atypon</h4>
-                    <p className="text-gray-800 dark:text-gray-200">Software Engineer - eJournalPress Team</p>
-                    <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">Sept 2024 - Present</p>
+                    <p style={{ color: 'var(--text-primary)' }}>Software Engineer - eJournalPress Team</p>
+                    <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>Sept 2024 - Present</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-2 h-2 rounded-full bg-tech-purple mt-2 animate-pulse" />
                   <div>
                     <h4 className="text-xl font-semibold text-tech-purple drop-shadow-lg">Safe App</h4>
-                    <p className="text-gray-800 dark:text-gray-200">Software Engineer (Contract)</p>
-                    <p className="text-sm text-gray-700 dark:text-gray-300 mt-1">Oct 2024 - May 2025</p>
+                    <p style={{ color: 'var(--text-primary)' }}>Software Engineer (Contract)</p>
+                    <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>Oct 2024 - May 2025</p>
                   </div>
                 </div>
               </div>
@@ -162,7 +163,7 @@ export default function About() {
                     transition={{ delay: 1 + index * 0.1 }}
                   >
                     <div className="w-2 h-2 rounded-full bg-gradient-to-r from-tech-cyan to-tech-purple shadow-lg" />
-                    <span className="text-gray-800 dark:text-gray-200 font-medium">{skill}</span>
+                    <span className="font-medium" style={{ color: 'var(--text-primary)' }}>{skill}</span>
                   </motion.div>
                 ))}
               </div>

@@ -97,7 +97,7 @@ export default function Contact() {
           >
             Get In <span className="text-gradient">Touch</span>
           </motion.h2>
-          <p className="text-xl text-gray-800 dark:text-gray-100 font-medium">
+          <p className="text-xl font-medium" style={{ color: 'var(--text-primary)' }}>
             Let's discuss how I can help bring your ideas to life
           </p>
         </motion.div>
@@ -133,8 +133,8 @@ export default function Contact() {
                             <Icon className="w-6 h-6 text-white" />
                           </motion.div>
                           <div>
-                            <p className="text-sm text-gray-700 dark:text-gray-300 font-medium">{info.label}</p>
-                            <p className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-tech-cyan transition-colors">
+                            <p className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>{info.label}</p>
+                            <p className="text-lg font-semibold group-hover:text-tech-cyan transition-colors" style={{ color: 'var(--text-primary)' }}>
                               {info.value}
                             </p>
                           </div>
@@ -149,8 +149,8 @@ export default function Contact() {
                             <Icon className="w-6 h-6 text-white" />
                           </motion.div>
                           <div>
-                            <p className="text-sm text-gray-700 dark:text-gray-300 font-medium">{info.label}</p>
-                            <p className="text-lg font-semibold text-gray-900 dark:text-white">
+                            <p className="text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>{info.label}</p>
+                            <p className="text-lg font-semibold" style={{ color: 'var(--text-primary)' }}>
                               {info.value}
                             </p>
                           </div>
@@ -167,8 +167,8 @@ export default function Contact() {
               className="glass-strong rounded-3xl p-8 text-center"
             >
               <div className="text-6xl mb-4">👋</div>
-              <h4 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Open to Opportunities</h4>
-              <p className="text-gray-800 dark:text-gray-200 font-medium">
+              <h4 className="text-2xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Open to Opportunities</h4>
+              <p className="font-medium" style={{ color: 'var(--text-secondary)' }}>
                 Currently available for full-time positions, contract work, and exciting collaborations
               </p>
             </motion.div>
@@ -202,7 +202,7 @@ export default function Contact() {
               ) : (
                 <>
                   <div>
-                    <label htmlFor="name" className="block text-sm font-semibold mb-2 text-gray-800 dark:text-gray-200">
+                    <label htmlFor="name" className="block text-sm font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>
                       Your Name
                     </label>
                     <motion.input
@@ -219,7 +219,7 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-semibold mb-2 text-gray-800 dark:text-gray-200">
+                    <label htmlFor="email" className="block text-sm font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>
                       Your Email
                     </label>
                     <motion.input
@@ -236,7 +236,7 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-semibold mb-2 text-gray-800 dark:text-gray-200">
+                    <label htmlFor="message" className="block text-sm font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>
                       Your Message
                     </label>
                     <motion.textarea
@@ -289,10 +289,14 @@ export default function Contact() {
         {/* Footer */}
         <motion.div
           variants={itemVariants}
-          className="mt-16 text-center text-gray-800 dark:text-gray-200"
+          className="mt-16 text-center"
+          style={{ color: 'var(--text-secondary)' }}
         >
           <p className="text-sm font-medium">
-            © 2026 Amir Herzalla.
+            © 2026 Amir Herzalla. Built with React, Framer Motion, and Three.js
+          </p>
+          <p className="text-xs mt-2 font-medium">
+            Designed and developed with passion in Jordan 🇯🇴
           </p>
         </motion.div>
       </motion.div>

@@ -104,7 +104,7 @@ export default function Experience() {
           >
             Work <span className="text-gradient">Experience</span>
           </motion.h2>
-          <p className="text-xl text-gray-800 dark:text-gray-100 font-medium">
+          <p className="text-xl font-medium" style={{ color: 'var(--text-primary)' }}>
             My professional journey through innovative tech companies
           </p>
         </motion.div>
@@ -154,7 +154,7 @@ export default function Experience() {
                         <Building2 className="w-6 h-6 text-white" />
                       </motion.div>
                       <div>
-                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                        <h3 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
                           {exp.company}
                         </h3>
                         <p className="text-lg text-tech-cyan font-semibold drop-shadow-lg">{exp.role}</p>
@@ -168,7 +168,7 @@ export default function Experience() {
                     </motion.div>
                   </div>
 
-                  <div className="flex flex-wrap gap-4 mb-4 text-sm text-gray-800 dark:text-gray-200 font-medium">
+                  <div className="flex flex-wrap gap-4 mb-4 text-sm font-medium" style={{ color: 'var(--text-secondary)' }}>
                     <div className="flex items-center gap-2">
                       <MapPin className="w-4 h-4" />
                       {exp.location}
@@ -179,7 +179,7 @@ export default function Experience() {
                     </div>
                   </div>
 
-                  <p className="text-gray-900 dark:text-gray-100 mb-4 font-medium">
+                  <p className="mb-4 font-medium" style={{ color: 'var(--text-primary)' }}>
                     {exp.description}
                   </p>
 
@@ -193,7 +193,7 @@ export default function Experience() {
                     className="overflow-hidden"
                   >
                     <div className="pt-4 border-t border-gray-300 dark:border-gray-600">
-                      <h4 className="font-bold mb-3 text-gray-900 dark:text-white text-lg">Key Achievements:</h4>
+                      <h4 className="font-bold mb-3 text-lg" style={{ color: 'var(--text-primary)' }}>Key Achievements:</h4>
                       <ul className="space-y-2">
                         {exp.highlights.map((highlight, hIndex) => (
                           <motion.li
@@ -201,7 +201,8 @@ export default function Experience() {
                             initial={{ x: -20, opacity: 0 }}
                             animate={expandedIndex === index ? { x: 0, opacity: 1 } : {}}
                             transition={{ delay: hIndex * 0.1 }}
-                            className="flex items-start gap-2 text-gray-800 dark:text-gray-200 font-medium"
+                            className="flex items-start gap-2 font-medium"
+                            style={{ color: 'var(--text-primary)' }}
                           >
                             <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${exp.color} mt-2 flex-shrink-0 shadow-lg`} />
                             <span>{highlight}</span>

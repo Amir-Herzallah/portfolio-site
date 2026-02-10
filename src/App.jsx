@@ -14,6 +14,9 @@ function AppContent() {
     <div 
       className="relative min-h-screen"
       style={{
+        '--text-primary': theme === 'dark' ? '#ffffff' : '#111827',
+        '--text-secondary': theme === 'dark' ? '#e5e7eb' : '#1f2937',
+        '--text-tertiary': theme === 'dark' ? '#d1d5db' : '#374151',
         color: theme === 'dark' ? '#ffffff' : '#111827'
       }}
     >
