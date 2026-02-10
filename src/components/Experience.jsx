@@ -104,7 +104,7 @@ export default function Experience() {
           >
             Work <span className="text-gradient">Experience</span>
           </motion.h2>
-          <p className="text-xl text-gray-700 dark:text-gray-200 font-medium">
+          <p className="text-xl text-gray-800 dark:text-gray-100 font-medium">
             My professional journey through innovative tech companies
           </p>
         </motion.div>
@@ -168,7 +168,7 @@ export default function Experience() {
                     </motion.div>
                   </div>
 
-                  <div className="flex flex-wrap gap-4 mb-4 text-sm text-gray-700 dark:text-gray-300 font-medium">
+                  <div className="flex flex-wrap gap-4 mb-4 text-sm text-gray-800 dark:text-gray-200 font-medium">
                     <div className="flex items-center gap-2">
                       <MapPin className="w-4 h-4" />
                       {exp.location}
@@ -179,7 +179,7 @@ export default function Experience() {
                     </div>
                   </div>
 
-                  <p className="text-gray-800 dark:text-gray-200 mb-4 font-medium">
+                  <p className="text-gray-900 dark:text-gray-100 mb-4 font-medium">
                     {exp.description}
                   </p>
 
@@ -201,7 +201,7 @@ export default function Experience() {
                             initial={{ x: -20, opacity: 0 }}
                             animate={expandedIndex === index ? { x: 0, opacity: 1 } : {}}
                             transition={{ delay: hIndex * 0.1 }}
-                            className="flex items-start gap-2 text-gray-700 dark:text-gray-300 font-medium"
+                            className="flex items-start gap-2 text-gray-800 dark:text-gray-200 font-medium"
                           >
                             <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${exp.color} mt-2 flex-shrink-0 shadow-lg`} />
                             <span>{highlight}</span>

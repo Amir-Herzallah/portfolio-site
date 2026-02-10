@@ -97,7 +97,7 @@ export default function Contact() {
           >
             Get In <span className="text-gradient">Touch</span>
           </motion.h2>
-          <p className="text-xl text-gray-700 dark:text-gray-200 font-medium">
+          <p className="text-xl text-gray-800 dark:text-gray-100 font-medium">
             Let's discuss how I can help bring your ideas to life
           </p>
         </motion.div>
@@ -133,7 +133,7 @@ export default function Contact() {
                             <Icon className="w-6 h-6 text-white" />
                           </motion.div>
                           <div>
-                            <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">{info.label}</p>
+                            <p className="text-sm text-gray-700 dark:text-gray-300 font-medium">{info.label}</p>
                             <p className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-tech-cyan transition-colors">
                               {info.value}
                             </p>
@@ -149,7 +149,7 @@ export default function Contact() {
                             <Icon className="w-6 h-6 text-white" />
                           </motion.div>
                           <div>
-                            <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">{info.label}</p>
+                            <p className="text-sm text-gray-700 dark:text-gray-300 font-medium">{info.label}</p>
                             <p className="text-lg font-semibold text-gray-900 dark:text-white">
                               {info.value}
                             </p>
@@ -168,7 +168,7 @@ export default function Contact() {
             >
               <div className="text-6xl mb-4">👋</div>
               <h4 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Open to Opportunities</h4>
-              <p className="text-gray-700 dark:text-gray-300 font-medium">
+              <p className="text-gray-800 dark:text-gray-200 font-medium">
                 Currently available for full-time positions, contract work, and exciting collaborations
               </p>
             </motion.div>
@@ -289,7 +289,7 @@ export default function Contact() {
         {/* Footer */}
         <motion.div
           variants={itemVariants}
-          className="mt-16 text-center text-gray-700 dark:text-gray-300"
+          className="mt-16 text-center text-gray-800 dark:text-gray-200"
         >
           <p className="text-sm font-medium">
             © 2026 Amir Herzalla. Built with React, Framer Motion, and Three.js

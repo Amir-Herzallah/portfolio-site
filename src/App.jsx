@@ -11,7 +11,7 @@ function AppContent() {
   const { theme } = useTheme();
   
   return (
-    <div className="relative min-h-screen text-gray-900 dark:text-gray-100">
+    <div className="relative min-h-screen text-gray-900 dark:text-white">
       {/* Background Layer with Gradient */}
       <div 
         className="fixed inset-0 transition-all duration-700"

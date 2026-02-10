@@ -135,7 +135,7 @@ export default function Skills() {
           >
             Technical <span className="text-gradient">Skills</span>
           </motion.h2>
-          <p className="text-xl text-gray-700 dark:text-gray-200 font-medium">
+          <p className="text-xl text-gray-800 dark:text-gray-100 font-medium">
             My toolkit for building exceptional software
           </p>
         </motion.div>
@@ -255,7 +255,7 @@ export default function Skills() {
                 <h4 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
                   {item.title}
                 </h4>
-                <p className="text-gray-700 dark:text-gray-300 font-medium">
+                <p className="text-gray-800 dark:text-gray-200 font-medium">
                   {item.description}
                 </p>
               </motion.div>

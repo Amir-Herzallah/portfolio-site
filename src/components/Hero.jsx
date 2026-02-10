@@ -96,7 +96,7 @@ export default function Hero() {
 
         <motion.h1
           variants={itemVariants}
-          className="text-6xl md:text-8xl lg:text-9xl font-bold mb-6"
+          className="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 text-gray-900 dark:text-white"
         >
           <motion.span
             className="inline-block"
@@ -117,7 +117,7 @@ export default function Hero() {
 
         <motion.div variants={itemVariants} className="mb-8">
           <motion.h2
-            className="text-2xl md:text-4xl lg:text-5xl font-light text-gray-700 dark:text-gray-200 mb-4"
+            className="text-2xl md:text-4xl lg:text-5xl font-light text-gray-800 dark:text-gray-100 mb-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
@@ -125,7 +125,7 @@ export default function Hero() {
             Full-Stack Software Engineer
           </motion.h2>
           <motion.p
-            className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto font-medium"
+            className="text-lg md:text-xl text-gray-800 dark:text-gray-200 max-w-3xl mx-auto font-medium"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}
@@ -200,7 +200,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 1 }}
         >
-          <span className="text-sm text-gray-700 dark:text-gray-300 font-semibold">Scroll to explore</span>
+          <span className="text-sm text-gray-800 dark:text-gray-100 font-semibold">Scroll to explore</span>
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
