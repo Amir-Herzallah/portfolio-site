@@ -133,14 +133,6 @@ export default function About() {
                     <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>Sept 2024 - Present</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-4">
-                  <div className="w-2 h-2 rounded-full bg-tech-purple mt-2 animate-pulse" />
-                  <div>
-                    <h4 className="text-xl font-semibold text-tech-purple drop-shadow-lg">Safe App</h4>
-                    <p style={{ color: 'var(--text-primary)' }}>Software Engineer (Contract)</p>
-                    <p className="text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>Oct 2024 - May 2025</p>
-                  </div>
-                </div>
               </div>
             </div>
             <div>
