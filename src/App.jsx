@@ -10,16 +10,18 @@ import Contact from './components/Contact';
 function App() {
   return (
     <ThemeProvider>
-      <div className="relative min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-950 dark:to-black text-gray-900 dark:text-gray-100 transition-colors duration-500">
+      <div className="relative min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-950 dark:to-black text-gray-900 dark:text-gray-100 transition-all duration-700">
         <ParticleBackground />
-        <Navigation />
-        <main>
-          <Hero />
-          <About />
-          <Experience />
-          <Skills />
-          <Contact />
-        </main>
+        <div className="relative z-10">
+          <Navigation />
+          <main>
+            <Hero />
+            <About />
+            <Experience />
+            <Skills />
+            <Contact />
+          </main>
+        </div>
       </div>
     </ThemeProvider>
   );

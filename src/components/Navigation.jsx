@@ -74,8 +74,8 @@ export default function Navigation() {
               )}
               
               <div className="relative z-10 flex items-center gap-2">
-                <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-gray-600 dark:text-gray-300'}`} />
-                <span className={`text-sm font-medium hidden md:block ${isActive ? 'text-white' : 'text-gray-600 dark:text-gray-300'}`}>
+                <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-gray-800 dark:text-gray-200'}`} />
+                <span className={`text-sm font-semibold hidden md:block ${isActive ? 'text-white' : 'text-gray-800 dark:text-gray-200'}`}>
                   {item.label}
                 </span>
               </div>

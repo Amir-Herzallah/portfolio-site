@@ -18,12 +18,20 @@ function Particles() {
 
   const colors = useMemo(() => {
     const cols = new Float32Array(count * 3);
-    const techColors = [
-      [0, 0.85, 1], // cyan
-      [0.66, 0.33, 0.97], // purple
-      [0.93, 0.28, 0.6], // pink
-      [0.06, 0.73, 0.51], // green
-    ];
+    // Brighter colors for better visibility in both themes
+    const techColors = theme === 'dark' 
+      ? [
+          [0, 0.85, 1], // bright cyan for dark
+          [0.66, 0.33, 0.97], // bright purple
+          [0.93, 0.28, 0.6], // bright pink
+          [0.06, 0.73, 0.51], // bright green
+        ]
+      : [
+          [0, 0.6, 0.8], // darker cyan for light mode
+          [0.5, 0.2, 0.75], // darker purple
+          [0.7, 0.15, 0.4], // darker pink
+          [0.04, 0.5, 0.35], // darker green
+        ];
     
     for (let i = 0; i < count; i++) {
       const color = techColors[Math.floor(Math.random() * techColors.length)];
@@ -32,7 +40,7 @@ function Particles() {
       cols[i * 3 + 2] = color[2];
     }
     return cols;
-  }, []);
+  }, [theme]);
 
   useFrame((state) => {
     if (!particlesRef.current) return;
@@ -61,13 +69,14 @@ function Particles() {
           count={count}
           array={colors}
           itemSize={3}
+          needsUpdate={true}
         />
       </bufferGeometry>
       <pointsMaterial
-        size={0.1}
+        size={theme === 'dark' ? 0.12 : 0.15}
         vertexColors
         transparent
-        opacity={theme === 'dark' ? 0.8 : 0.6}
+        opacity={theme === 'dark' ? 0.7 : 0.8}
         sizeAttenuation
         blending={THREE.AdditiveBlending}
       />
@@ -108,9 +117,9 @@ function ConnectionLines() {
   return (
     <line ref={linesRef} geometry={lineGeometry}>
       <lineBasicMaterial
-        color={theme === 'dark' ? '#00d9ff' : '#0284c7'}
+        color={theme === 'dark' ? '#00d9ff' : '#0369a1'}
         transparent
-        opacity={0.3}
+        opacity={theme === 'dark' ? 0.3 : 0.4}
         linewidth={1}
       />
     </line>
@@ -119,7 +128,7 @@ function ConnectionLines() {
 
 export default function ParticleBackground() {
   return (
-    <div className="fixed inset-0 -z-10">
+    <div className="fixed inset-0 z-0 pointer-events-none">
       <Canvas camera={{ position: [0, 0, 20], fov: 75 }}>
         <ambientLight intensity={0.5} />
         <Particles />
