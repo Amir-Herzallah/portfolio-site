@@ -133,7 +133,7 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}
           >
-            Specializing in scalable backend systems, modern web applications, and 
+            Specializing in scalable backend systems, modern frontend experiences, and 
             <span className="text-tech-cyan font-bold drop-shadow-lg"> microservices architecture</span>.
             Passionate about creating elegant solutions to complex problems.
           </motion.p>
