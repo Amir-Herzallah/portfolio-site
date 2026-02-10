@@ -1,5 +1,5 @@
 import { Canvas, useFrame } from '@react-three/fiber';
-import { useRef, useMemo, useState, useEffect } from 'react';
+import { useRef, useMemo } from 'react';
 import * as THREE from 'three';
 import { useTheme } from '../context/ThemeContext';
 
@@ -7,29 +7,6 @@ function Particles() {
   const { theme } = useTheme();
   const particlesRef = useRef();
   const count = 2000;
-  const [scrollVelocity, setScrollVelocity] = useState(0);
-  const lastScrollY = useRef(0);
-
-  useEffect(() => {
-    let rafId;
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const velocity = (currentScrollY - lastScrollY.current) * 0.01;
-      setScrollVelocity(velocity);
-      lastScrollY.current = currentScrollY;
-      
-      // Decay velocity
-      rafId = requestAnimationFrame(() => {
-        setScrollVelocity(prev => prev * 0.95);
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (rafId) cancelAnimationFrame(rafId);
-    };
-  }, []);
 
   const positions = useMemo(() => {
     const pos = new Float32Array(count * 3);
@@ -68,25 +45,14 @@ function Particles() {
   useFrame((state) => {
     if (!particlesRef.current) return;
     
-    // Base rotation
     particlesRef.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.1) * 0.1;
     particlesRef.current.rotation.y = state.clock.elapsedTime * 0.05;
     
     const positions = particlesRef.current.geometry.attributes.position.array;
     for (let i = 0; i < positions.length; i += 3) {
-      // Base floating animation
-      const baseY = Math.sin(state.clock.elapsedTime * 0.5 + positions[i]) * 2;
-      
-      // Add scroll-based displacement
-      const scrollDisplacement = scrollVelocity * (positions[i + 1] / 10); // Vary by Y position
-      
-      positions[i + 1] = baseY + scrollDisplacement;
+      positions[i + 1] = Math.sin(state.clock.elapsedTime * 0.5 + positions[i]) * 2;
     }
     particlesRef.current.geometry.attributes.position.needsUpdate = true;
-    
-    // Add scroll-based rotation
-    particlesRef.current.rotation.x += scrollVelocity * 0.02;
-    particlesRef.current.rotation.z += scrollVelocity * 0.01;
   });
 
   return (
@@ -103,14 +69,13 @@ function Particles() {
           count={count}
           array={colors}
           itemSize={3}
-          needsUpdate={true}
         />
       </bufferGeometry>
       <pointsMaterial
-        size={theme === 'dark' ? 0.15 : 0.18}
+        size={theme === 'dark' ? 0.12 : 0.15}
         vertexColors
         transparent
-        opacity={theme === 'dark' ? 0.6 : 0.7}
+        opacity={theme === 'dark' ? 0.8 : 0.6}
         sizeAttenuation
         blending={THREE.AdditiveBlending}
       />
