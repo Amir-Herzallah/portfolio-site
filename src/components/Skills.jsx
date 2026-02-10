@@ -10,6 +10,7 @@ import {
   GitBranch,
   Layers,
 } from 'lucide-react';
+import TechIcon from './TechIcon';
 
 export default function Skills() {
   const ref = useRef(null);
@@ -134,7 +135,7 @@ export default function Skills() {
           >
             Technical <span className="text-gradient">Skills</span>
           </motion.h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300">
+          <p className="text-xl text-gray-700 dark:text-gray-200 font-medium">
             My toolkit for building exceptional software
           </p>
         </motion.div>
@@ -173,7 +174,7 @@ export default function Skills() {
                     >
                       <Icon className="w-7 h-7 text-white" />
                     </motion.div>
-                    <h3 className="text-2xl font-bold text-gray-800 dark:text-white">
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
                       {category.title}
                     </h3>
                   </div>
@@ -187,16 +188,17 @@ export default function Skills() {
                         transition={{ delay: index * 0.1 + skillIndex * 0.05 }}
                       >
                         <div className="flex justify-between items-center mb-2">
-                          <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                          <span className="text-sm font-medium text-gray-900 dark:text-gray-100 flex items-center gap-2">
+                            <TechIcon name={skill.name} size={18} />
                             {skill.name}
                           </span>
-                          <span className="text-xs text-gray-500 dark:text-gray-500">
+                          <span className="text-xs font-semibold text-gray-700 dark:text-gray-300">
                             {skill.level}%
                           </span>
                         </div>
-                        <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                        <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden shadow-inner">
                           <motion.div
-                            className={`h-full bg-gradient-to-r ${category.color} rounded-full`}
+                            className={`h-full bg-gradient-to-r ${category.color} rounded-full shadow-lg`}
                             initial={{ width: 0 }}
                             animate={isInView ? { width: `${skill.level}%` } : {}}
                             transition={{
@@ -250,10 +252,10 @@ export default function Skills() {
                 whileHover={{ y: -5 }}
               >
                 <div className="text-5xl mb-4">{item.icon}</div>
-                <h4 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">
+                <h4 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
                   {item.title}
                 </h4>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-gray-700 dark:text-gray-300 font-medium">
                   {item.description}
                 </p>
               </motion.div>

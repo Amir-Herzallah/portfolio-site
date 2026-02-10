@@ -71,15 +71,15 @@ export default function About() {
             About <span className="text-gradient">Me</span>
           </motion.h2>
           <motion.p
-            className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed"
+            className="text-xl md:text-2xl text-gray-700 dark:text-gray-200 max-w-4xl mx-auto leading-relaxed"
             variants={itemVariants}
           >
             I'm a passionate Full-Stack Software Engineer based in{' '}
-            <span className="text-tech-cyan font-semibold">Amman, Jordan</span>, specializing in building 
+            <span className="text-tech-cyan font-bold drop-shadow-lg">Amman, Jordan</span>, specializing in building 
             scalable backend systems and modern web applications. With expertise in{' '}
-            <span className="text-tech-purple font-semibold">Java (Spring Boot)</span>,{' '}
-            <span className="text-tech-pink font-semibold">Node.js</span>, and{' '}
-            <span className="text-tech-green font-semibold">React</span>, I create elegant solutions to complex problems.
+            <span className="text-tech-purple font-bold drop-shadow-lg">Java (Spring Boot)</span>,{' '}
+            <span className="text-tech-pink font-bold drop-shadow-lg">Node.js</span>, and{' '}
+            <span className="text-tech-green font-bold drop-shadow-lg">React</span>, I create elegant solutions to complex problems.
           </motion.p>
         </motion.div>
 
@@ -103,10 +103,10 @@ export default function About() {
                 >
                   <Icon className="w-7 h-7 text-white" />
                 </motion.div>
-                <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">
+                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
                   {highlight.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-gray-700 dark:text-gray-300">
                   {highlight.description}
                 </p>
               </motion.div>
@@ -127,17 +127,17 @@ export default function About() {
                 <div className="flex items-start gap-4">
                   <div className="w-2 h-2 rounded-full bg-tech-cyan mt-2 animate-pulse" />
                   <div>
-                    <h4 className="text-xl font-semibold text-tech-cyan">Wiley/Atypon</h4>
-                    <p className="text-gray-600 dark:text-gray-400">Software Engineer - eJournalPress Team</p>
-                    <p className="text-sm text-gray-500 dark:text-gray-500 mt-1">Sept 2024 - Present</p>
+                    <h4 className="text-xl font-semibold text-tech-cyan drop-shadow-lg">Wiley/Atypon</h4>
+                    <p className="text-gray-700 dark:text-gray-300">Software Engineer - eJournalPress Team</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Sept 2024 - Present</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="w-2 h-2 rounded-full bg-tech-purple mt-2 animate-pulse" />
                   <div>
-                    <h4 className="text-xl font-semibold text-tech-purple">Safe App</h4>
-                    <p className="text-gray-600 dark:text-gray-400">Software Engineer (Contract)</p>
-                    <p className="text-sm text-gray-500 dark:text-gray-500 mt-1">Oct 2024 - May 2025</p>
+                    <h4 className="text-xl font-semibold text-tech-purple drop-shadow-lg">Safe App</h4>
+                    <p className="text-gray-700 dark:text-gray-300">Software Engineer (Contract)</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Oct 2024 - May 2025</p>
                   </div>
                 </div>
               </div>
@@ -161,8 +161,8 @@ export default function About() {
                     animate={isInView ? { x: 0, opacity: 1 } : {}}
                     transition={{ delay: 1 + index * 0.1 }}
                   >
-                    <div className="w-2 h-2 rounded-full bg-gradient-to-r from-tech-cyan to-tech-purple" />
-                    <span className="text-gray-700 dark:text-gray-300">{skill}</span>
+                    <div className="w-2 h-2 rounded-full bg-gradient-to-r from-tech-cyan to-tech-purple shadow-lg" />
+                    <span className="text-gray-800 dark:text-gray-200 font-medium">{skill}</span>
                   </motion.div>
                 ))}
               </div>

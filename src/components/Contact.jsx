@@ -97,7 +97,7 @@ export default function Contact() {
           >
             Get In <span className="text-gradient">Touch</span>
           </motion.h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300">
+          <p className="text-xl text-gray-700 dark:text-gray-200 font-medium">
             Let's discuss how I can help bring your ideas to life
           </p>
         </motion.div>
@@ -133,8 +133,8 @@ export default function Contact() {
                             <Icon className="w-6 h-6 text-white" />
                           </motion.div>
                           <div>
-                            <p className="text-sm text-gray-500 dark:text-gray-400">{info.label}</p>
-                            <p className="text-lg font-medium text-gray-800 dark:text-white group-hover:text-tech-cyan transition-colors">
+                            <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">{info.label}</p>
+                            <p className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-tech-cyan transition-colors">
                               {info.value}
                             </p>
                           </div>
@@ -149,8 +149,8 @@ export default function Contact() {
                             <Icon className="w-6 h-6 text-white" />
                           </motion.div>
                           <div>
-                            <p className="text-sm text-gray-500 dark:text-gray-400">{info.label}</p>
-                            <p className="text-lg font-medium text-gray-800 dark:text-white">
+                            <p className="text-sm text-gray-600 dark:text-gray-400 font-medium">{info.label}</p>
+                            <p className="text-lg font-semibold text-gray-900 dark:text-white">
                               {info.value}
                             </p>
                           </div>
@@ -167,8 +167,8 @@ export default function Contact() {
               className="glass-strong rounded-3xl p-8 text-center"
             >
               <div className="text-6xl mb-4">👋</div>
-              <h4 className="text-2xl font-bold mb-2">Open to Opportunities</h4>
-              <p className="text-gray-600 dark:text-gray-400">
+              <h4 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Open to Opportunities</h4>
+              <p className="text-gray-700 dark:text-gray-300 font-medium">
                 Currently available for full-time positions, contract work, and exciting collaborations
               </p>
             </motion.div>
@@ -202,7 +202,7 @@ export default function Contact() {
               ) : (
                 <>
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                    <label htmlFor="name" className="block text-sm font-semibold mb-2 text-gray-800 dark:text-gray-200">
                       Your Name
                     </label>
                     <motion.input
@@ -219,7 +219,7 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                    <label htmlFor="email" className="block text-sm font-semibold mb-2 text-gray-800 dark:text-gray-200">
                       Your Email
                     </label>
                     <motion.input
@@ -236,7 +236,7 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2 text-gray-700 dark:text-gray-300">
+                    <label htmlFor="message" className="block text-sm font-semibold mb-2 text-gray-800 dark:text-gray-200">
                       Your Message
                     </label>
                     <motion.textarea
@@ -254,7 +254,7 @@ export default function Contact() {
 
                   <motion.button
                     type="submit"
-                    className="w-full py-4 rounded-xl bg-gradient-to-r from-tech-cyan via-tech-purple to-tech-pink text-white font-semibold group relative overflow-hidden"
+                    className="w-full py-4 rounded-xl bg-gradient-to-r from-tech-cyan via-tech-purple to-tech-pink text-white font-bold group relative overflow-hidden btn-tech shadow-lg"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -264,7 +264,18 @@ export default function Contact() {
                       whileHover={{ x: '100%' }}
                       transition={{ duration: 0.6 }}
                     />
-                    <span className="relative z-10 flex items-center justify-center gap-2">
+                    <motion.div
+                      className="absolute inset-0"
+                      whileHover={{
+                        boxShadow: [
+                          '0 0 20px rgba(0, 217, 255, 0.6)',
+                          '0 0 40px rgba(168, 85, 247, 0.8)',
+                          '0 0 20px rgba(0, 217, 255, 0.6)',
+                        ],
+                      }}
+                      transition={{ duration: 1, repeat: Infinity }}
+                    />
+                    <span className="relative z-10 flex items-center justify-center gap-2 tracking-wide">
                       Send Message
                       <Send className="w-5 h-5" />
                     </span>
@@ -278,12 +289,12 @@ export default function Contact() {
         {/* Footer */}
         <motion.div
           variants={itemVariants}
-          className="mt-16 text-center text-gray-600 dark:text-gray-400"
+          className="mt-16 text-center text-gray-700 dark:text-gray-300"
         >
-          <p className="text-sm">
+          <p className="text-sm font-medium">
             © 2026 Amir Herzalla. Built with React, Framer Motion, and Three.js
           </p>
-          <p className="text-xs mt-2">
+          <p className="text-xs mt-2 font-medium">
             Designed and developed with passion in Jordan 🇯🇴
           </p>
         </motion.div>

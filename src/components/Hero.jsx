@@ -117,7 +117,7 @@ export default function Hero() {
 
         <motion.div variants={itemVariants} className="mb-8">
           <motion.h2
-            className="text-2xl md:text-4xl lg:text-5xl font-light text-gray-600 dark:text-gray-300 mb-4"
+            className="text-2xl md:text-4xl lg:text-5xl font-light text-gray-700 dark:text-gray-200 mb-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
@@ -125,13 +125,13 @@ export default function Hero() {
             Full-Stack Software Engineer
           </motion.h2>
           <motion.p
-            className="text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-3xl mx-auto"
+            className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto font-medium"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}
           >
             Specializing in scalable backend systems, modern web applications, and 
-            <span className="text-tech-cyan font-medium"> microservices architecture</span>.
+            <span className="text-tech-cyan font-bold drop-shadow-lg"> microservices architecture</span>.
             Passionate about creating elegant solutions to complex problems.
           </motion.p>
         </motion.div>
@@ -153,11 +153,12 @@ export default function Hero() {
                 transition={{ delay: 1.4 + index * 0.1 }}
               >
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-tech-cyan to-tech-purple opacity-0 group-hover:opacity-100 transition-opacity"
+                  className="absolute inset-0 bg-gradient-to-r from-tech-cyan to-tech-purple opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   animate={{ rotate: 360 }}
                   transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
                 />
-                <Icon className="w-6 h-6 relative z-10 text-gray-700 dark:text-gray-300 group-hover:text-white transition-colors" />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_20px_rgba(0,217,255,0.6)]" />
+                <Icon className="w-6 h-6 relative z-10 text-gray-800 dark:text-gray-200 group-hover:text-white transition-colors drop-shadow-lg" />
               </motion.a>
             );
           })}
@@ -166,14 +167,26 @@ export default function Hero() {
         <motion.div variants={itemVariants}>
           <motion.button
             onClick={() => document.getElementById('about').scrollIntoView({ behavior: 'smooth' })}
-            className="glass-strong px-8 py-4 rounded-full font-medium group relative overflow-hidden"
+            className="glass-strong px-8 py-4 rounded-full font-semibold group relative overflow-hidden btn-tech"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-tech-cyan via-tech-purple to-tech-pink opacity-0 group-hover:opacity-100 transition-opacity"
+              className="absolute inset-0 bg-gradient-to-r from-tech-cyan via-tech-purple to-tech-pink opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             />
-            <span className="relative z-10 group-hover:text-white transition-colors">
+            <motion.div
+              className="absolute inset-0"
+              initial={false}
+              whileHover={{
+                boxShadow: [
+                  '0 0 20px rgba(0, 217, 255, 0.4)',
+                  '0 0 40px rgba(168, 85, 247, 0.6)',
+                  '0 0 20px rgba(0, 217, 255, 0.4)',
+                ],
+              }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            />
+            <span className="relative z-10 text-gray-900 dark:text-gray-100 group-hover:text-white transition-colors font-bold tracking-wide">
               Explore My Work
             </span>
           </motion.button>
@@ -187,12 +200,12 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 1 }}
         >
-          <span className="text-sm text-gray-500 dark:text-gray-400">Scroll to explore</span>
+          <span className="text-sm text-gray-700 dark:text-gray-300 font-semibold">Scroll to explore</span>
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           >
-            <ChevronDown className="w-6 h-6 text-tech-cyan" />
+            <ChevronDown className="w-6 h-6 text-tech-cyan drop-shadow-lg" />
           </motion.div>
         </motion.div>
       )}
