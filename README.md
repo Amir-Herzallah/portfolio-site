@@ -42,6 +42,48 @@ Clone the repository and install dependencies:
 npm install
 ```
 
+## Email Configuration
+
+The contact form uses EmailJS to send messages directly to your email. Follow these steps to set it up:
+
+1. **Create an EmailJS Account**
+   - Visit [EmailJS](https://www.emailjs.com/) and sign up for a free account
+   - Free tier includes 200 emails per month
+
+2. **Set Up Email Service**
+   - In EmailJS dashboard, go to "Email Services"
+   - Click "Add New Service"
+   - Choose your email provider (Gmail, Outlook, etc.)
+   - Follow the connection instructions
+
+3. **Create Email Template**
+   - Go to "Email Templates"
+   - Click "Create New Template"
+   - Use these template variables:
+     ```
+     From: {{from_name}} ({{from_email}})
+     
+     Message:
+     {{message}}
+     ```
+   - Save the template and note the Template ID
+
+4. **Get Your Public Key**
+   - Go to "Account" → "General"
+   - Copy your Public Key
+
+5. **Configure Environment Variables**
+   - Copy `.env.example` to `.env`
+   ```bash
+   cp .env.example .env
+   ```
+   - Fill in your EmailJS credentials:
+   ```env
+   VITE_EMAILJS_SERVICE_ID=your_service_id
+   VITE_EMAILJS_TEMPLATE_ID=your_template_id
+   VITE_EMAILJS_PUBLIC_KEY=your_public_key
+   ```
+
 ## Development
 
 Start the development server:
@@ -51,6 +93,8 @@ npm run dev
 ```
 
 The application will be available at `http://localhost:5173`
+
+**Note:** Make sure your `.env` file is configured with EmailJS credentials for the contact form to work.
 
 ## Build
 

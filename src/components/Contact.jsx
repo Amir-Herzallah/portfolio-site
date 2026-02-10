@@ -1,12 +1,15 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Mail, MapPin, Linkedin, Github, Phone, Send, CheckCircle } from 'lucide-react';
+import { Mail, MapPin, Linkedin, Github, Phone, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [isSending, setIsSending] = useState(false);
 
   const contactInfo = [
     {
@@ -46,14 +49,52 @@ export default function Contact() {
     },
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // In a real application, you would send this to a backend
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
+    setIsSending(true);
+    setIsError(false);
+
+    try {
+      // EmailJS configuration
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      if (!serviceId || !templateId || !publicKey) {
+        console.error('EmailJS configuration missing. Please set up environment variables.');
+        setIsError(true);
+        setIsSending(false);
+        return;
+      }
+
+      // Send email using EmailJS
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_name: 'Amir Herzalla',
+        },
+        publicKey
+      );
+
+      setIsSubmitted(true);
       setFormData({ name: '', email: '', message: '' });
-    }, 3000);
+      
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 5000);
+    } catch (error) {
+      console.error('Failed to send message:', error);
+      setIsError(true);
+      setTimeout(() => {
+        setIsError(false);
+      }, 5000);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -194,10 +235,28 @@ export default function Contact() {
                   >
                     <CheckCircle className="w-20 h-20 text-tech-green mb-4" />
                   </motion.div>
-                  <h4 className="text-2xl font-bold mb-2">Message Sent!</h4>
-                  <p className="text-gray-600 dark:text-gray-400">
+                  <h4 className="text-2xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Message Sent!</h4>
+                  <p style={{ color: 'var(--text-secondary)' }}>
                     I'll get back to you as soon as possible.
                   </p>
+                </motion.div>
+              ) : isError ? (
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  className="flex flex-col items-center justify-center py-12"
+                >
+                  <AlertCircle className="w-20 h-20 text-red-500 mb-4" />
+                  <h4 className="text-2xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Oops! Something went wrong</h4>
+                  <p style={{ color: 'var(--text-secondary)' }} className="mb-4 text-center">
+                    Please try again or contact me directly at amirherzalla8@gmail.com
+                  </p>
+                  <button
+                    onClick={() => setIsError(false)}
+                    className="px-6 py-2 bg-gradient-to-r from-tech-cyan to-tech-purple text-white rounded-lg font-semibold hover:scale-105 transition-transform"
+                  >
+                    Try Again
+                  </button>
                 </motion.div>
               ) : (
                 <>
@@ -254,9 +313,10 @@ export default function Contact() {
 
                   <motion.button
                     type="submit"
-                    className="w-full py-4 rounded-xl bg-gradient-to-r from-tech-cyan via-tech-purple to-tech-pink text-white font-bold group relative overflow-hidden btn-tech shadow-lg"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                    disabled={isSending}
+                    className="w-full py-4 rounded-xl bg-gradient-to-r from-tech-cyan via-tech-purple to-tech-pink text-white font-bold group relative overflow-hidden btn-tech shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                    whileHover={!isSending ? { scale: 1.02 } : {}}
+                    whileTap={!isSending ? { scale: 0.98 } : {}}
                   >
                     <motion.div
                       className="absolute inset-0 bg-white/20"
@@ -264,20 +324,35 @@ export default function Contact() {
                       whileHover={{ x: '100%' }}
                       transition={{ duration: 0.6 }}
                     />
-                    <motion.div
-                      className="absolute inset-0"
-                      whileHover={{
-                        boxShadow: [
-                          '0 0 20px rgba(0, 217, 255, 0.6)',
-                          '0 0 40px rgba(168, 85, 247, 0.8)',
-                          '0 0 20px rgba(0, 217, 255, 0.6)',
-                        ],
-                      }}
-                      transition={{ duration: 1, repeat: Infinity }}
-                    />
+                    {!isSending && (
+                      <motion.div
+                        className="absolute inset-0"
+                        whileHover={{
+                          boxShadow: [
+                            '0 0 20px rgba(0, 217, 255, 0.6)',
+                            '0 0 40px rgba(168, 85, 247, 0.8)',
+                            '0 0 20px rgba(0, 217, 255, 0.6)',
+                          ],
+                        }}
+                        transition={{ duration: 1, repeat: Infinity }}
+                      />
+                    )}
                     <span className="relative z-10 flex items-center justify-center gap-2 tracking-wide">
-                      Send Message
-                      <Send className="w-5 h-5" />
+                      {isSending ? (
+                        <>
+                          <motion.div
+                            className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
+                            animate={{ rotate: 360 }}
+                            transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+                          />
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          Send Message
+                          <Send className="w-5 h-5" />
+                        </>
+                      )}
                     </span>
                   </motion.button>
                 </>
