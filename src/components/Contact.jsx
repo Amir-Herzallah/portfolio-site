@@ -293,10 +293,7 @@ export default function Contact() {
           style={{ color: 'var(--text-secondary)' }}
         >
           <p className="text-sm font-medium">
-            © 2026 Amir Herzalla. Built with React, Framer Motion, and Three.js
-          </p>
-          <p className="text-xs mt-2 font-medium">
-            Designed and developed with passion in Jordan 🇯🇴
+            © 2026 Amir Herzalla.
           </p>
         </motion.div>
       </motion.div>
