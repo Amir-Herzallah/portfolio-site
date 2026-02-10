@@ -1,0 +1,175 @@
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import { Award, BookOpen, TrendingUp, Zap } from 'lucide-react';
+
+export default function About() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  const highlights = [
+    {
+      icon: Zap,
+      title: '95% Performance Boost',
+      description: 'Rewrote a complex conversion engine achieving massive performance improvements',
+      color: 'from-tech-cyan to-blue-500',
+    },
+    {
+      icon: TrendingUp,
+      title: '100% Achievement Rating',
+      description: 'Perfect performance rating within first 7 months at Wiley/Atypon',
+      color: 'from-tech-purple to-purple-500',
+    },
+    {
+      icon: BookOpen,
+      title: 'Computer Engineering',
+      description: 'B.Sc. from University of Jordan with 3.60 GPA',
+      color: 'from-tech-pink to-pink-500',
+    },
+    {
+      icon: Award,
+      title: 'Student of the Year',
+      description: 'SOTY award with 96.0% high school average',
+      color: 'from-tech-green to-green-500',
+    },
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 50, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 100,
+      },
+    },
+  };
+
+  return (
+    <section id="about" className="min-h-screen flex items-center justify-center py-20 px-4" ref={ref}>
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? 'visible' : 'hidden'}
+        className="max-w-7xl mx-auto"
+      >
+        <motion.div variants={itemVariants} className="text-center mb-16">
+          <motion.h2
+            className="text-5xl md:text-7xl font-bold mb-6"
+            whileHover={{ scale: 1.02 }}
+          >
+            About <span className="text-gradient">Me</span>
+          </motion.h2>
+          <motion.p
+            className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed"
+            variants={itemVariants}
+          >
+            I'm a passionate Full-Stack Software Engineer based in{' '}
+            <span className="text-tech-cyan font-semibold">Amman, Jordan</span>, specializing in building 
+            scalable backend systems and modern web applications. With expertise in{' '}
+            <span className="text-tech-purple font-semibold">Java (Spring Boot)</span>,{' '}
+            <span className="text-tech-pink font-semibold">Node.js</span>, and{' '}
+            <span className="text-tech-green font-semibold">React</span>, I create elegant solutions to complex problems.
+          </motion.p>
+        </motion.div>
+
+        <motion.div
+          variants={containerVariants}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
+          {highlights.map((highlight, index) => {
+            const Icon = highlight.icon;
+            return (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="glass-strong rounded-2xl p-6 group hover:scale-105 transition-transform cursor-pointer"
+                whileHover={{ y: -10 }}
+              >
+                <motion.div
+                  className={`w-14 h-14 rounded-xl bg-gradient-to-br ${highlight.color} flex items-center justify-center mb-4 group-hover:rotate-12 transition-transform`}
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                >
+                  <Icon className="w-7 h-7 text-white" />
+                </motion.div>
+                <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">
+                  {highlight.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400">
+                  {highlight.description}
+                </p>
+              </motion.div>
+            );
+          })}
+        </motion.div>
+
+        <motion.div
+          variants={itemVariants}
+          className="mt-16 glass-strong rounded-3xl p-8 md:p-12"
+        >
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 className="text-3xl font-bold mb-4">
+                Currently Working At
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-4">
+                  <div className="w-2 h-2 rounded-full bg-tech-cyan mt-2 animate-pulse" />
+                  <div>
+                    <h4 className="text-xl font-semibold text-tech-cyan">Wiley/Atypon</h4>
+                    <p className="text-gray-600 dark:text-gray-400">Software Engineer - eJournalPress Team</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-500 mt-1">Sept 2024 - Present</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-2 h-2 rounded-full bg-tech-purple mt-2 animate-pulse" />
+                  <div>
+                    <h4 className="text-xl font-semibold text-tech-purple">Safe App</h4>
+                    <p className="text-gray-600 dark:text-gray-400">Software Engineer (Contract)</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-500 mt-1">Oct 2024 - May 2025</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-3xl font-bold mb-4">
+                What I Do Best
+              </h3>
+              <div className="space-y-3">
+                {[
+                  'Microservices Architecture',
+                  'Event-Driven Systems (RabbitMQ/Kafka)',
+                  'Real-time Features (WebSockets)',
+                  'Clean Architecture & SOLID Principles',
+                  'CI/CD & Azure DevOps',
+                ].map((skill, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex items-center gap-3"
+                    initial={{ x: -20, opacity: 0 }}
+                    animate={isInView ? { x: 0, opacity: 1 } : {}}
+                    transition={{ delay: 1 + index * 0.1 }}
+                  >
+                    <div className="w-2 h-2 rounded-full bg-gradient-to-r from-tech-cyan to-tech-purple" />
+                    <span className="text-gray-700 dark:text-gray-300">{skill}</span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+}
