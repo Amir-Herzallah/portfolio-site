@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import { Building2, Calendar, MapPin, ChevronRight } from 'lucide-react';
+import { Calendar, MapPin, ChevronRight } from 'lucide-react';
+import CompanyLogo from './CompanyLogo';
 
 export default function Experience() {
   const ref = useRef(null);
@@ -147,11 +148,11 @@ export default function Experience() {
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
                       <motion.div
-                        className={`w-12 h-12 rounded-xl bg-gradient-to-br ${exp.color} flex items-center justify-center`}
+                        className="w-12 h-12 rounded-xl flex items-center justify-center overflow-hidden bg-white/90 dark:bg-gray-800/90 shadow-sm"
                         whileHover={{ rotate: 360 }}
                         transition={{ duration: 0.6 }}
                       >
-                        <Building2 className="w-6 h-6 text-white" />
+                        <CompanyLogo company={exp.company} size="lg" />
                       </motion.div>
                       <div>
                         <h3 className="text-2xl font-bold" style={{ color: 'var(--text-primary)' }}>
