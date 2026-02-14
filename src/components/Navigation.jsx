@@ -58,7 +58,7 @@ export default function Navigation() {
             <motion.button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className="relative px-2 sm:px-3 md:px-4 py-2 rounded-full transition-colors group"
+              className="relative px-2 sm:px-3 md:px-4 py-2 rounded-full transition-colors group flex items-center justify-center"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, y: -20 }}
@@ -73,7 +73,7 @@ export default function Navigation() {
                 />
               )}
               
-              <div className="relative z-10 flex items-center gap-1.5 sm:gap-2">
+              <div className="relative z-10 flex items-center justify-center md:justify-start gap-0 md:gap-2">
                 <Icon 
                   className="w-3.5 h-3.5 sm:w-4 sm:h-4"
                   style={{ color: isActive ? 'white' : 'var(--text-primary)' }}
