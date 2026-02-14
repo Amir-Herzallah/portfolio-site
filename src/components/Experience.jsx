@@ -91,7 +91,7 @@ export default function Experience() {
   };
 
   return (
-    <section id="experience" className="min-h-screen flex items-center justify-center py-16 sm:py-20 px-4 sm:px-6" ref={ref}>
+    <section id="experience" className="min-h-screen flex items-center justify-center py-16 sm:py-20 px-2 sm:px-6" ref={ref}>
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -113,7 +113,7 @@ export default function Experience() {
         <div className="relative">
           {/* Timeline line */}
           <motion.div
-            className="absolute left-4 sm:left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-tech-cyan via-tech-purple to-tech-pink"
+            className="absolute left-2 sm:left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-tech-cyan via-tech-purple to-tech-pink"
             initial={{ height: 0 }}
             animate={isInView ? { height: '100%' } : {}}
             transition={{ duration: 1.5, ease: 'easeInOut' }}
@@ -130,7 +130,7 @@ export default function Experience() {
               >
                 {/* Timeline dot */}
                 <motion.div
-                  className={`absolute left-4 sm:left-8 md:left-1/2 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-gradient-to-r ${exp.color} -translate-x-1/2 z-10 border-2 sm:border-4 border-white dark:border-gray-900`}
+                  className={`absolute left-2 sm:left-8 md:left-1/2 w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-gradient-to-r ${exp.color} -translate-x-1/2 z-10 border-2 sm:border-4 border-white dark:border-gray-900`}
                   initial={{ scale: 0 }}
                   animate={isInView ? { scale: 1 } : {}}
                   transition={{ delay: index * 0.2 }}
@@ -139,7 +139,7 @@ export default function Experience() {
 
                 {/* Content card */}
                 <motion.div
-                  className={`w-full md:w-[calc(50%-3rem)] ml-12 sm:ml-20 md:ml-0 glass-strong rounded-2xl p-4 sm:p-6 group hover:scale-105 transition-all cursor-pointer ${
+                  className={`w-full md:w-[calc(50%-3rem)] ml-8 sm:ml-20 md:ml-0 glass-strong rounded-2xl p-4 sm:p-6 group hover:scale-105 transition-all cursor-pointer ${
                     expandedIndex === index ? 'ring-2 ring-tech-cyan' : ''
                   }`}
                   onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
