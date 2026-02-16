@@ -81,11 +81,11 @@ body {
 }
 
 .glass-strong {
-  background-color: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(0, 217, 255, 0.3);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  background-color: rgb(255, 255, 255);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(0, 217, 255, 0.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
   transition: all 0.3s ease;
 }
 

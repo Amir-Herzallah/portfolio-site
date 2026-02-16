@@ -11,11 +11,14 @@ import {
   Layers,
 } from 'lucide-react';
 import TechIcon from './TechIcon';
+import { useTheme } from '../context/ThemeContext';
 
 export default function Skills() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [hoveredCategory, setHoveredCategory] = useState(null);
+  const { theme } = useTheme();
+  const isLightMode = theme === 'light';
 
   const skillCategories = [
     {
@@ -23,10 +26,10 @@ export default function Skills() {
       title: 'Backend Development',
       color: 'from-tech-cyan to-blue-500',
       skills: [
-        { name: 'Java (Spring Boot)', level: 90 },
-        { name: 'Node.js (NestJS, Express)', level: 85 },
-        { name: 'ASP.NET Core', level: 80 },
-        { name: 'Perl', level: 75 },
+        'Java (Spring Boot)',
+        'Node.js (NestJS, Express)',
+        'ASP.NET Core',
+        'Perl',
       ],
     },
     {
@@ -34,11 +37,11 @@ export default function Skills() {
       title: 'Frontend Development',
       color: 'from-tech-purple to-purple-500',
       skills: [
-        { name: 'React', level: 90 },
-        { name: 'SolidJS', level: 85 },
-        { name: 'Angular', level: 80 },
-        { name: 'TypeScript/JavaScript', level: 90 },
-        { name: 'HTML5/CSS3', level: 85 },
+        'React',
+        'SolidJS',
+        'Angular',
+        'TypeScript/JavaScript',
+        'HTML5/CSS3',
       ],
     },
     {
@@ -46,11 +49,11 @@ export default function Skills() {
       title: 'Databases',
       color: 'from-tech-pink to-pink-500',
       skills: [
-        { name: 'MySQL/PostgreSQL', level: 85 },
-        { name: 'Oracle Database', level: 80 },
-        { name: 'SQL Server', level: 80 },
-        { name: 'MongoDB', level: 75 },
-        { name: 'Redis', level: 70 },
+        'MySQL/PostgreSQL',
+        'Oracle Database',
+        'SQL Server',
+        'MongoDB',
+        'Redis',
       ],
     },
     {
@@ -58,10 +61,10 @@ export default function Skills() {
       title: 'Architecture',
       color: 'from-tech-green to-green-500',
       skills: [
-        { name: 'Microservices', level: 90 },
-        { name: 'Event-Driven Architecture', level: 85 },
-        { name: 'Clean Architecture', level: 85 },
-        { name: 'SOLID Principles', level: 90 },
+        'Microservices',
+        'Event-Driven Architecture',
+        'Clean Architecture',
+        'SOLID Principles',
       ],
     },
     {
@@ -69,11 +72,11 @@ export default function Skills() {
       title: 'DevOps & Tools',
       color: 'from-orange-400 to-red-500',
       skills: [
-        { name: 'Docker', level: 85 },
-        { name: 'CI/CD', level: 80 },
-        { name: 'Azure DevOps', level: 80 },
-        { name: 'Git/GitHub', level: 90 },
-        { name: 'Linux/Bash', level: 85 },
+        'Docker',
+        'CI/CD',
+        'Azure DevOps',
+        'Git/GitHub',
+        'Linux/Bash',
       ],
     },
     {
@@ -81,9 +84,9 @@ export default function Skills() {
       title: 'Messaging',
       color: 'from-indigo-400 to-blue-600',
       skills: [
-        { name: 'RabbitMQ', level: 85 },
-        { name: 'Apache Kafka', level: 80 },
-        { name: 'WebSockets', level: 85 },
+        'RabbitMQ',
+        'Apache Kafka',
+        'WebSockets',
       ],
     },
     {
@@ -91,9 +94,9 @@ export default function Skills() {
       title: 'Methodologies',
       color: 'from-teal-400 to-cyan-500',
       skills: [
-        { name: 'Agile/Scrum', level: 90 },
-        { name: 'Clean Code', level: 90 },
-        { name: 'Design Patterns', level: 85 },
+        'Agile/Scrum',
+        'Clean Code',
+        'Design Patterns',
       ],
     },
   ];
@@ -156,6 +159,10 @@ export default function Skills() {
                 onMouseEnter={() => setHoveredCategory(index)}
                 onMouseLeave={() => setHoveredCategory(null)}
                 whileHover={{ y: -10, scale: 1.02 }}
+                style={isLightMode ? {
+                  backgroundColor: 'rgba(255, 255, 255, 0.98)',
+                  backdropFilter: 'blur(4px)'
+                } : {}}
               >
                 {/* Animated background gradient */}
                 <motion.div
@@ -179,34 +186,55 @@ export default function Skills() {
                     </h3>
                   </div>
 
-                  <div className="space-y-3 sm:space-y-4">
+                  <div className="space-y-2.5 sm:space-y-3">
                     {category.skills.map((skill, skillIndex) => (
                       <motion.div
                         key={skillIndex}
-                        initial={{ x: -20, opacity: 0 }}
+                        initial={{ x: -30, opacity: 0 }}
                         animate={isInView ? { x: 0, opacity: 1 } : {}}
-                        transition={{ delay: index * 0.1 + skillIndex * 0.05 }}
+                        transition={{ 
+                          delay: index * 0.1 + skillIndex * 0.06,
+                          type: 'spring',
+                          stiffness: 150,
+                          damping: 12
+                        }}
+                        whileHover={{ 
+                          x: 8,
+                          transition: { duration: 0.2 }
+                        }}
+                        className="group cursor-default"
                       >
-                        <div className="flex justify-between items-center mb-1.5 sm:mb-2">
-                          <span className="text-xs sm:text-sm font-medium flex items-center gap-1.5 sm:gap-2" style={{ color: 'var(--text-primary)' }}>
-                            <TechIcon name={skill.name} size={16} />
-                            <span className="break-words">{skill.name}</span>
-                          </span>
-                          <span className="text-xs font-semibold ml-2 flex-shrink-0" style={{ color: 'var(--text-secondary)' }}>
-                            {skill.level}%
-                          </span>
-                        </div>
-                        <div className="h-1.5 sm:h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden shadow-inner">
+                        <div 
+                          className="relative overflow-hidden px-4 py-3 rounded-xl bg-white dark:bg-black/20 hover:bg-gray-50 dark:hover:bg-black/30 border border-gray-300 dark:border-gray-700 transition-all duration-300 shadow-sm hover:shadow-md"
+                          style={isLightMode ? {
+                            backgroundColor: '#ffffff',
+                            borderColor: '#e5e7eb',
+                            opacity: '1'
+                          } : {}}
+                        >
+                          {/* Accent bar */}
                           <motion.div
-                            className={`h-full bg-gradient-to-r ${category.color} rounded-full shadow-lg`}
-                            initial={{ width: 0 }}
-                            animate={isInView ? { width: `${skill.level}%` } : {}}
-                            transition={{
-                              delay: index * 0.1 + skillIndex * 0.05 + 0.2,
-                              duration: 0.8,
-                              ease: 'easeOut',
-                            }}
+                            className={`absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b ${category.color}`}
+                            initial={{ height: 0 }}
+                            animate={isInView ? { height: '100%' } : {}}
+                            transition={{ delay: index * 0.1 + skillIndex * 0.06 + 0.2, duration: 0.4 }}
                           />
+                          
+                          <div className="relative flex items-center gap-3 pl-2">
+                            {/* Logo container with gradient background */}
+                            <motion.div
+                              className={`flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-br ${category.color} flex items-center justify-center shadow-lg`}
+                              whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
+                              transition={{ duration: 0.5 }}
+                            >
+                              <TechIcon name={skill} size={24} className="text-white drop-shadow-md" />
+                            </motion.div>
+                            
+                            {/* Technology name */}
+                            <span className="text-sm sm:text-base font-semibold" style={{ color: 'var(--text-primary)' }}>
+                              {skill}
+                            </span>
+                          </div>
                         </div>
                       </motion.div>
                     ))}
