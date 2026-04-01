@@ -145,10 +145,10 @@ export default function Contact() {
 
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
           {/* Contact Information */}
-          <motion.div variants={itemVariants} className="space-y-5 sm:space-y-6">
-            <motion.div className="glass-strong rounded-3xl p-6 sm:p-8">
+          <motion.div variants={itemVariants} className="h-full">
+            <motion.div className="glass-strong rounded-3xl p-6 sm:p-8 h-full flex flex-col">
               <h3 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8">Let's Connect</h3>
-              <div className="space-y-5 sm:space-y-6">
+              <div className="space-y-5 sm:space-y-6 flex-1">
                 {contactInfo.map((info, index) => {
                   const Icon = info.icon;
                   return (
@@ -202,24 +202,13 @@ export default function Contact() {
                 })}
               </div>
             </motion.div>
-
-            <motion.div
-              variants={itemVariants}
-              className="glass-strong rounded-3xl p-6 sm:p-8 text-center"
-            >
-              <div className="text-5xl sm:text-6xl mb-3 sm:mb-4">👋</div>
-              <h4 className="text-xl sm:text-2xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Open to Opportunities</h4>
-              <p className="font-medium text-sm sm:text-base" style={{ color: 'var(--text-secondary)' }}>
-                Currently available for full-time positions, contract work, and exciting collaborations
-              </p>
-            </motion.div>
           </motion.div>
 
           {/* Contact Form */}
-          <motion.div variants={itemVariants}>
+          <motion.div variants={itemVariants} className="h-full">
             <motion.form
               onSubmit={handleSubmit}
-              className="glass-strong rounded-3xl p-6 sm:p-8 space-y-5 sm:space-y-6"
+              className="glass-strong rounded-3xl p-6 sm:p-8 space-y-5 sm:space-y-6 h-full flex flex-col"
             >
               <h3 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">Send a Message</h3>
               
