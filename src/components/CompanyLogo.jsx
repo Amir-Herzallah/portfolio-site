@@ -3,8 +3,10 @@ import wileyLogo from '../assets/wiley.png';
 import safeLogo from '../assets/safe.png';
 import tahalufLogo from '../assets/tahaluf.jpeg';
 import payoneLogo from '../assets/payone.png';
+import eonLogo from '../assets/eon.jpeg';
 
 const companyLogos = {
+  'Eon Dental': { type: 'image', src: eonLogo, alt: 'Eon Dental' },
   'Wiley/Atypon': { type: 'image', src: wileyLogo, alt: 'Wiley/Atypon' },
   'Safe App': { type: 'image', src: safeLogo, alt: 'Safe App' },
   'Tahaluf Al-Emarat Technical Solutions': { type: 'image', src: tahalufLogo, alt: 'Tahaluf Al-Emarat Technical Solutions' },

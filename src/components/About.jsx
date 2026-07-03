@@ -128,9 +128,9 @@ export default function About() {
                 <div className="flex items-start gap-3 sm:gap-4">
                   <div className="w-2 h-2 rounded-full bg-tech-cyan mt-2 animate-pulse flex-shrink-0" />
                   <div>
-                    <h4 className="text-lg sm:text-xl font-semibold text-tech-cyan drop-shadow-lg">Wiley/Atypon</h4>
-                    <p className="text-sm sm:text-base" style={{ color: 'var(--text-primary)' }}>Software Engineer - eJournalPress Team</p>
-                    <p className="text-xs sm:text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>Sept 2024 - Present</p>
+                    <h4 className="text-lg sm:text-xl font-semibold text-tech-cyan drop-shadow-lg">Eon Dental</h4>
+                    <p className="text-sm sm:text-base" style={{ color: 'var(--text-primary)' }}>Software Engineer - MES Team</p>
+                    <p className="text-xs sm:text-sm mt-1" style={{ color: 'var(--text-secondary)' }}>Apr 2026 - Present</p>
                   </div>
                 </div>
               </div>

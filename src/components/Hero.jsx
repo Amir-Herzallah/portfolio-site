@@ -84,15 +84,6 @@ export default function Hero() {
         animate="visible"
         className="text-center z-10 max-w-5xl mx-auto w-full"
       >
-        <motion.div variants={itemVariants} className="mb-4 sm:mb-6">
-          <motion.div
-            className="inline-flex items-center gap-2 glass px-4 sm:px-6 py-2 sm:py-3 rounded-full mb-6 sm:mb-8"
-            whileHover={{ scale: 1.05 }}
-          >
-            <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-tech-cyan animate-pulse" />
-            <span className="text-xs sm:text-sm font-medium text-gradient">Available for opportunities</span>
-          </motion.div>
-        </motion.div>
 
         <motion.h1
           variants={itemVariants}

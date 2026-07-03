@@ -10,6 +10,20 @@ export default function Experience() {
 
   const experiences = [
     {
+      company: 'Eon Dental',
+      role: 'Software Engineer',
+      location: 'Jordan [On-site]',
+      period: 'Apr 2026 - Present',
+      description: 'Part of the manufacturing team, contributing to full-stack software development.',
+      highlights: [
+        'Building scalable and structured backend services using NestJS',
+        'Developing web applications using React',
+        'Using Temporal to orchestrate workflows',
+        'Revamped Python services to improve performance by up to 5x'
+      ],
+      color: 'from-tech-cyan to-blue-500',
+    },
+    {
       company: 'Wiley/Atypon',
       role: 'Software Engineer',
       location: 'USA/Jordan [Hybrid]',
